@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+  href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+  rel="stylesheet">
+  <title>Login Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "poppins",sans-serif;
+      background-color: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .login-container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      transition: transform 0.3s;
+    }
+
+    .login-container:hover {
+      transform: translateY(-5px);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      font-size: 32px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      margin-bottom: 20px;
+      transition: border-color 0.3s;
+    }
+
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      border-color: #0066ff;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background-color: #0066ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0051d1;
+    }
+
+    .signup-link {
+      text-align: center;
+      color: #888;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+
+    .signup-link a {
+      color: #0066ff;
+      text-decoration: none;
+    }
+
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Login</h2>
+    
+    <label for="login-email">Email:</label>
+    <input type="email" id="login-email" placeholder="Enter your email">
+
+    <label for="login-password">Password:</label>
+    <input type="password" id="login-password" placeholder="Enter your password">
+    
+    <button onclick="login()">Login</button>
+
+    <div class="signup-link">
+      Don't have an account? <a href="signup.html">Sign up</a>
+    </div>
+  </div>
+
+  <script>
+    function login() {
+      // Get stored data from local storage
+      var storedEmail = localStorage.getItem('email');
+      var storedPassword = localStorage.getItem('password');
+      
+      // Get user input from the login form
+      var loginEmail = document.getElementById('login-email').value;
+      var loginPassword = document.getElementById('login-password').value;
+
+      // Check if input matches the stored data
+      if (loginPassword === storedPassword && loginEmail === storedEmail) {
+        alert('Login successful!');
+        // Redirect to a new page
+        window.location.href = "welcome.html";  // Replace with the actual welcome page
+      } else {
+        alert('Invalid email or password. Please try again.');
+      }
+    }
+  </script>
+
+</body>
+</html>
